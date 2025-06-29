@@ -59,4 +59,40 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# laravel_api
+
+
+# 📰 Laravel RESTful API for User Authentication and Article Management
+
+This project is a RESTful API built with Laravel that supports user registration, login, logout, and full CRUD (Create, Read, Update, Delete) operations for managing articles. Each article is associated with a registered user via Laravel's Eloquent relationships.
+
+### 🚀 Features
+
+* User authentication with Laravel Sanctum
+* Register/Login/Logout endpoints
+* Secure access with middleware protection
+* Article management (CRUD) with ownership checks
+* API resources for clean JSON responses
+* Pagination support for article listing
+
+### 🧩 Tech Stack
+
+* PHP 8+
+* Laravel 10+
+* Laravel Sanctum (API token authentication)
+* Eloquent ORM
+
+### 📁 API Routes (from `routes/api.php`)
+
+* `POST /register` – Create a new user
+* `POST /login` – Authenticate and get token
+* `POST /logout` – Revoke access token (requires auth)
+* `GET /articles` – List all articles (paginated)
+* `POST /articles` – Create article (requires auth)
+* `GET /articles/{id}` – View a single article
+* `PUT /articles/{id}` – Update article (auth & owner only)
+* `DELETE /articles/{id}` – Delete article (auth & owner only)
+
+### 🔐 Authentication
+
+Authentication is handled using Laravel Sanctum. All write operations on articles require a valid access token, and users can only modify or delete their own articles.
+
